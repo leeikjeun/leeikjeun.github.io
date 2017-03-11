@@ -235,7 +235,7 @@ section {
     max-width: 400px;
     margin: 0 auto; }
     #portfolio .portfolio-item .portfolio-link .portfolio-hover {
-      background: rgba(254, 209, 54, 0.1);
+      background: rgba(255, 255, 255, 0.1);
       position: absolute;
       width: 100%;
       height: 100%;
@@ -335,10 +335,6 @@ section {
         margin-top: 40px; }
     .timeline > li.timeline-inverted > .timeline-panel {
       padding: 0 100px 20px 20px; }
-    .timeline img{
-      height: 170px;
-      width: 170px;
-    }
     }
 
 footer {
