@@ -334,7 +334,12 @@ section {
       .timeline > li .timeline-image h4 {
         margin-top: 40px; }
     .timeline > li.timeline-inverted > .timeline-panel {
-      padding: 0 100px 20px 20px; } }
+      padding: 0 100px 20px 20px; }
+    .timeline li img{
+      height: 170px;
+      width: 170px;
+    }
+    }
 
 footer {
   padding: 25px 0;
