@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Sample Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='../../https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='../../https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../../index.html">summarize note bolg</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                      <a href="nav_content/about.html">About Me</a>
+                  </li>
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">catalog<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="../catalog_content/spring.html">스프링</a></li>
+                      <li><a href="../catalog_content/design.html">디자인패턴</a></li>
+                      <li><a href="../catalog_content/english.html">영어</a></li>
+                      <li><a href="../catalog_content/wonder.html">개인적 궁금증</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <a href="contact.html">Contact</a>
+                  </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../../img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>챕터 02</h1>
+                        <h2 class="subheading">다향성과 추상 타입</h2>
+                        <span class="meta">Posted by <a href="#">이익전</a> on 8월 11일, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>챕터 02 다향성과 추상 타입에는 총 3가지 파트가 있다 <br />
+                        1 상속 개요 <br />
+                        2 다향성과 상속<br />
+                        3 추상 타입과 유연함 <br />
+                        이장에는 객체지향의 유연함을 얻을 수 있도록 해 주는 추상화에 대해 설명하고 있다
+                    </p>
+
+                    <h2 class="section-heading">상속 개요</h2>
+
+                    <p>
+                      상속은 한 타입을 그대로 사용하면서 구현을 추가할 수 있도록 해주는 방법을 제공한다.
+                      예를 들어 금액 할인에 사용되는 쿠폰을 표현하기 위해 Coupon이라는 클래스를 작성했다고하자.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-0.png" alt="">
+
+                    <p>
+                      이 객체를 이용해서 할인된 금액을 구하는 코드는 다음과 같이 사용할 것
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-1.png" alt="">
+
+                    <p>
+                      만약 금액 할인 쿠폰 중 상품 금액이 지정한 금액 이상인 경우에만 할인을 받도록 하는 쿠폰을 만들고 싶다.
+                      근데 이미 Couponㅋ클래스가 쿠폰의 기본적인 기능을 제공하고 있다 따라서 이 기능을 확장해서 쿠폰을 만들면 좀 더 수월하게
+                      새로운 쿠폰 기능을 만들수 있다 이럴 떄 상속을 많이 이용
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-2.png" alt="">
+
+                    <p>
+                      LimitPriceCoupon클래스는 Coupon클래스를 상속받고 있다 이때 Coupon클래스를 상위 클래스 또는 부모 클래스라하고
+                      LimitPirceCoupon클래스는 하위 또는 자식클래스라고 한다.
+                      자식 클래스는 부모 클래스에 정의된 구현을 물려받음.
+                      또한 하위 클래스는 필요에 따라 상위클래스에 정의된 메서드를 새롭게 구현할수 있음.
+                    </p>
+
+                    <h2 class="section-heading">다형성과 상속</h2>
+
+                    <p>
+                      다향성은 한 객체가 여러 가지 모습을 갖는다는 것을 의미 여기서 모습이란 타입을 뜻하는데
+                      즉 다향성이란 한 객체가 어러 타입을 가질 수 있다는 것을 뜻한다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-3.jpeg" alt="">
+
+                    <p>
+                      위 그림에서 중간에 위치한 객체는 타입A, 타입B, 타입C에 정의된 인터페이스의 구현을 제공하는데
+                      이 경우 다른 코드에서는 이 객체에서 타입A에 정의된 기능 실행을 요청하거나 타입B 또는 타입C의 기능도 요청할수 있다
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-4.png" alt="">
+
+                    <p>위에 그림을 보면 TurboPlane은 Plane을 상속받고 Turbo도 상속받고 있다 이런 경우에 TurboPlane은 Plane이나 Turbo 에 정의된
+                    메서드의 실행을 요청할수 있다 또한 TurboPlane타입의 객체에 할당하는 가능하다 아래 그림을 보자</p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-5.png" alt="">
+
+                    <p>
+                      즉 TurboPlane타입의 객체는 Plane타입도 되고 Turbo타입도 될수 있으며 Plane 타입과 Turbo타입에 정의된
+                      모든 기능을 제공하게 된다.
+                    </p>
+
+                    <h3>인터페이스 상속과 구현 상속</h3>
+
+                    <p>
+                      많은 객체 지향언어는 다향성을 구현하기 위해 타입을 상속 받는 방법을 사용하는데 크게
+                      인터페이스 상속과 구현 상속으로 구분해 볼수 있다. <br />
+                      인터페이스 상속은 순전히 타입 정의만 상속 받는 것이다. <br />
+                      구현 상속은 클래스 상속을 통해서 이루어진다. 구현 상속경우 보통 상위 클레스에 정의된 기능을 재사용하기 위한 목적으로 사용
+                    </p>
+
+
+                    <blockquote>전 추가사항 이행</blockquote>
+
+                    <h2 class="section-heading">추상 타입과 유연함</h2>
+
+                    <p>소프트웨어의 가치는 사용자가 요구하는 기능을 올바르게 제공하는 데 있다 하지만 이것을 곧 요구하는 기능만 제공하도록 구현하면 된다는 의미는 아님 <br />
+                        요구사항은 언제나 변함 따라서 소프트웨어는 변화할 수 있어야 함 이것이 또다른 소프트웨어의 가치 <br />
+                        변화 가능한 유연한 구조를 만들어 주는 핵심 기범 중의 하나가 바로 객체 지향이다!!
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../../js/jqBootstrapValidation.js"></script>
+    <script src="../../js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../../js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
