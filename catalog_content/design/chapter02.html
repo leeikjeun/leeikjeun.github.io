@@ -243,8 +243,71 @@
                       이 모양세는 처음에 들어가기에 했던 예제와 비슷해 졌다. 데이터를 읽어오는 요구 사항의 변화가 생길 떄 마다 FlowController는 계속해서
                       영향을 받는다.FlowController자체는 파일이건 소켓이건 상관없이 데이터를 읽어 오고 이를 암호화해서 특정 파일에 기록하는 책임을 진다. 근데 지금
                       코드는 본연의 책임(흐름 제어)과 상관없는 데이터 읽기 구현의 변경 떄문에 FlowController도 함깨 바뀌는 것이다.
+                      <br />
+                      구현을 진행하기 앞서 새로운 요구 사항과 기존 기능을 비교를 하면 <br />
+                      기존 요구 사항 : 파일에서 바이트 데이터를 읽어 와 <br />
+                      추가 요구 사항 : 소켓에서 바이트 데이터를 읽어 와 <br />
+                      이 두개의 요구의 공통점은 어딘가에서 데이터를 읽어 오는 것이다. 이걸 동일한 개념으로
+                      추상화 할수 있을 것이다. 이 두 구현을 추상화 하면 어떤 곳으로부터 바이트 데이터를 읽기로 표현할수 있다
                     </p>
 
+                    <img class="img-responsive" src="../../img/design/챕터02-13.png" alt="">
+
+                    <p>
+                      위에 그림과 같이 추상화한 타입의 소스을 만들었으므로 이제 FielDataReader 와 SocketDataReader는 모두 위의
+                      타입을 상속받오록 바꿀 수 있다. 그후 FlowController의 코드는 이렇게 봐꿀수 있다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-14.png" alt="">
+
+                    <p>
+                      앞선 코드보단 단순하지만 여전히 if-else 블록이 남아있다. 여기 코드에는 공통적인 부분이 숨어있다
+                      바로 byteSource타입의 객체를 생성하는 부분이다. ByteSource의 콘크리트 클래스를 이용해서 캑체를 생성하는 부분이 들어가 있는데
+                      이 부분을 처리하지 않으면 FlowController는 여전히 사용할 ByteSource의 콘크리트 클래스가 변경될 때 마다 함깨 변경된다.
+                      이걸 해결하는 방법은 2가지가 있다. <br /><br />
+                      <b>1. ByteSource 타입의 객체를 생성하는 기능을 별도 객체로 분리한 뒤 그 객체를 사용해서 ByteSource생성 </b><br />
+                      <b>2. 생성사(또는 다른 메서드)를 이용해서 사용할 ByteSource를 전달 받기 </b><br / ><br />
+
+                      이중 첫번째 방식으로 처리할 경우 ByteSource 타입의 객체를 생성해 주는 책임을 갖는 ByteSourceFactory를 구현할수 있을것이다
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-15.png" alt="">
+
+                    <p>
+                      ByteSourceFactory 클래스의 create메서드는 ByteSource타입의 객체를 생성하는 기능을 제공한다.
+                      즉 ByteSourceFactory클래스는 ByteSource타입의 객체를 생성하는 과정을 추상화했다고 볼수있다.
+                      이제 FlowController클래스가 다음과 같이 변할것이다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/design/챕터02-16.png" alt="">
+
+                    <p>
+                      만약 http를 이용해서 암호화 할 데이터를 읽어 와야하는 새로운 요구가 있다고 해도 이제 FlowController는 변경되지 않을것 변경되는건
+                      오직 ByteSourceFactory하나 뿐이다. 추상화 과정을 통해 2가지 유연함을 얻을수 있다 <br /><br />
+                      1.ByteSource의 종류가 변경되면 ByteSourceFactory만 변경될 뿐 FlowController는 변경없다. <br />
+                      2.FlowController의 제어 흐름이 변경할 때 ByteSource객체를 생성하는 부분은 영향을 주지 않으면서 FlowController만 변경된다.
+                    </p>
+                    <blockquote>
+                      최종 객체 관계
+                    </blockquote>
+                    <img class="img-responsive" src="../../img/design/챕터02-17.jpeg" alt="">
+
+                    <blockquote>
+                      재사용성
+                    </blockquote>
+                    <p>
+                      위에 그림에서 재상용 되는 것은 파일에서 데이터를 읽어오는 FileDataReader나 소켓에서 데이터를 읽어오는
+                      SocketDataReader를 재사용하기도 하지만 더 큰 수준에서의 재사용은 전체 흐름을 제어하는 FlowController에서 일어남
+                      FileDataReader나 SocketDataReader는 특정한 구현을 재상용하는 용도로 사용되고 FlowController는 데이터를 읽고
+                      암호화하고 데이터를 쓰는 핵심로직을 제공 여기서 FlowController는 상위 수준의 로직 SocketDataReader와 FileDataReader은 하위 로직이 된다
+                      재사용성의 중요성으로는 상위 수준의 로직을 재사용 할수 있도록 설계하는 것이 더 중요
+                    </p>
+
+                    <h3>변화되는 부분을 추상화하기</h3>
+
+                    <p>
+                      
+                    </p>
                 </div>
             </div>
         </div>

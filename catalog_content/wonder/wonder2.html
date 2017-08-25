@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Sample Post</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="../../css/clean-blog.min.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='../../https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='../../https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../../index.html">summarize note bolg</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav navbar-right">
+                  <li>
+                      <a href="index.html">Home</a>
+                  </li>
+                  <li>
+                      <a href="nav_content/about.html">About Me</a>
+                  </li>
+                  <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">catalog<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="../catalog_content/spring.html">스프링</a></li>
+                      <li><a href="../catalog_content/design.html">디자인패턴</a></li>
+                      <li><a href="../catalog_content/english.html">영어</a></li>
+                      <li><a href="../catalog_content/wonder.html">개인적 궁금증</a></li>
+                    </ul>
+                  </li>
+                  <li>
+                      <a href="contact.html">Contact</a>
+                  </li>
+              </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('../../img/post-bg.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading">
+                        <h1>두번째 궁금증 조사</h1>
+                        <h2 class="subheading">디자인 패턴 비교하자 전략패턴과 상태패턴</h2>
+                        <span class="meta">Posted by <a href="#">이익전</a> on 8월 24일, 2017</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>
+                      한동안 디자인 패턴에 대해서 공부을 할껀데 우선 이름을보고 내가 선탠한 state pattern과
+                      같이 공부하는 친구가 고른 strategy pattern을 비교하면서 공부를 시작하기로 했다.
+                    </p>
+
+                    <h2 class="section-heading">스트래티지 패턴(Strategy Pattern)</h2>
+
+                    <p>
+                      일단 스트래티지 패턴의 특징은 다음과 같다 <br />
+                      <b>알고리즘군을 정의하고 각각을 캐슐화하여 교환해서 사용할 수 있도록 만든다.</b>
+                      <b>알고리즘을 사용하는 클라이언트와는 독립적으로 알고리즘을 변경할 수 있다.</b>
+                      <b>구성을 사용한다.</b>
+                      <b>일반적으로 서브클래스를 만드는 방법을 대신하여 유연성을 극대화하기 위한 용도로 쓰인다.</b>
+                      <br />
+                      이렇게만 보면 이해하기 힘드니 예제를 만들겠다.
+                      만약 어떤 가계가 있는데 이 가계는 아침손님할인, 그리고 점심손님할인 이라는 정책을 가지고 있다.
+                      만야 이렇게 되있다면 코드는 다음과 같을 것이다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-01.png" alt="">
+
+                    <p>
+                      근데 여기서 저녁에는 야체들의 신선도가 떨어져 할인을 30% 한다고 한다 그럴경우 코드는 다음과 같을것이다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-02.png" alt="">
+
+                    <p>
+                      이렇게 정책이 늘어나고 수정할때마다 if-else문이 늘어나고 점점 관리를 하기 힘들어 진다. 이때 해결
+                      방법은 하나의 공통된 부분을 추상화 하는 것이다 여기서 추상할것은 할인을 추상화 할것이다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-03.png" alt="">
+
+                    <p>
+                      이렇게 추상화한후 이 프로그램은 다음과 같은 구조가 될 것이다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-04.png" alt="">
+
+                    <p>
+                      위의 그림처럼 discountStrategy 인터페이스에 상품의 할인을 추상화 하고 그리고 disCountStrategy클래스를
+                      상속받는 콘크리트클래스는 상황에 맞는 할인 계산을 제공한다. 이때 DisCountStrategy는 전략이라 부르고
+                      가격 계산 기능 자체의 책임을 갖는 Calculator를 콘텍스트라 부른다 이렇게 특정 콘텍스트에서 알고리즘을 별도로 분리하는 설계 방법이 전략 패턴이다.
+                    </p>
+
+                    <blockquote>
+                      전략패턴을 적용한 코드
+                    </blockquote>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-05.png" alt="">
+
+                    <h2 class="section-heading">스테이트 패턴(State Pattern)</h2>
+
+                    <p>
+                      스테이트 패턴의 특징은 다음과 같다 <br />
+                      <b>- 객체의 내부 상태가 바뀜에 따라서 객체의 행동을 바꿀 수 있다.</b><br />
+                        <b>마치 객체의 클래스가 바뀌는 것과 같은 결과를 얻을 수 있다.</b><br />
+                      <b>- 상태 전환의 흐름을 결정하는 코드를 어느 쪽에 집어넣는지 잘 고려해야 한다.</b><br />
+                        <b>(상태 객체인지, Context 객체인지)</b><br />
+                        <b>- 각 상태를 클래스로 캡슐화함으로써 나중에 변경시켜야 하는 내용을 국지화시킬 수 있다.</b><br />
+                      스테이트 패턴은 스트래티지와 비슷한데 차이점은 다음과 같다 <br />
+                      <b>- 스트래티지 패턴:
+                        어떤 클래스의 인스턴스를 만들고 그 인스턴스에게 어떤 행동을 구현하는 전략 객체를 건내준다.<br />
+                      - 스테이트 패턴:
+                        컨텍스트 객체를 생성할 때 초기 상태를 지정해주는 경우 이후로는 컨텍스트 객체가 알아서 상태를 변경.</b><br />
+                        이 상태패턴을 이해하기 쉽게 하기위해 예를 들어 단일 상품을 판매하는 자판기에 들어갈 소프트웨어를 개발할려한다 기능은
+                        코인이 없을때 코인이 있을때 그리고 자판기에 제품이 없는 경우에 동전을 넣으면 바로 동전을 되돌리는 기능을 구현할꺼다
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-06.png" alt="">
+
+                    <p>
+                      위에코드는 기능구현했을때 코드이다 만약 자동세턱중일때 동전을 넣으면 바로 동전을 돌려주는 요구사항이 들어온다면
+                      insertCoin()과 select()에 또다른 조건문이 추가 될것이다.
+                      이는상태가 많아질수록 복잡해지는 조건문이 여러 코드에서 중복해서 출현하고 그만큼 코드 변경을 어렵게 만든다.
+                      위의 클래스의 조건문을 다시보면 다음과 같은 의미를 내포하고 있다. <br />
+                      <b>상태에 따라 동일한 기능 요청의 처리를 다르게 함</b> <br />
+                      따라서 상태에 따라 다라게 동작해야 할때 사용할수 있는 패턴이 상태 패턴이다. 다음과 같이 상태를 별도 티입으로 분리하고
+                      각 상태 별로 알맞은 하위 타입을 구현한다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-07.png" alt="">
+
+                    <p>
+                      이 상태 패턴에서 중요한 점은 상태 객체가 기능을 제공한다는 점이다. 콘텍스트 필드로 상태 객체를 갖고있다.
+                      콘텍스트는 클라이언트로부터 기능 실행 요청을 받으면 상태 객체에 처리를 위임하는 방식으로 구현한다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-08.png" alt="">
+
+                    <p>
+                      위의 코드는 상태패턴을 적용시킨 코드이다. 전의 코드는 if else문으로 상태를 처리했다면 위의 코드는
+                      각 상태마다 클래스를 만들어 기능을 제공하고 있다. 코드는 다음과 같이 만들어 졌다.
+                    </p>
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-09.png" alt="">
+
+                    <img class="img-responsive" src="../../img/wonder/wonder02-10.png" alt="">
+
+                    <p>
+                      이렇게 만듬으로써 VendingMachine 클래으싀 코드 구현은 상태 객체에 위임하는 방식으로 단순해 진다.
+                      상태 패턴의 장점은 새로운 상태가 추가되더라도 콘텍스트 코드가 받는 영향은 최소화 된다는 점이다
+                       또한 상태에 따른 동작을 구현한 코드가 각 상태 별로 구분되기 때문에 상태 별 동작을 수정하기가 쉽다.
+
+                       <br />
+                       <br />
+
+                    상태 패턴을 할때 상태변경은 누가 할것인지 중요하다 우선 상태 변경을 하는 주체는 콘텍스트나 상태 객체 둘중 하나가 된다.
+                    앞의 예제는 상태 객체가 상태변경을 해주었다. 만약 이 예제에서 콘텍스트에서 상태변환을 했으면 코드가 좀더 복잡해졌을것이다.
+                    그리고 반대로 상태객체에서 상태변환을 할때 코드가 복잡해질 가능성이 있는 것도 있을것이다. 상황에 따라 상태 변경울 누가 할지
+                    알맞게 정의해 주어야 한다.
+                    <br />
+                    콘텍스트에서 상태를 변경하는 방식은 비교적 상태 개수가 적고 상태 변경 구칙이 거의 바뀌지 않은 경우 유리<br />
+                    단점 상태 변경 처리 코드가 복잡해질수록 상태 변경의 유연함이 떨어진다 <br />
+                    상태 객체에서 콘텍스트의 상태를 변경하는 경우 콘텍스트에 영향을 주지 않으면서 상태를 추가하거나 상태 변경 규칙을 바꿀수 있다.<br />
+                    
+
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Your Website 2016</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="../../js/jqBootstrapValidation.js"></script>
+    <script src="../../js/contact_me.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="../../js/clean-blog.min.js"></script>
+
+</body>
+
+</html>
